@@ -11,18 +11,10 @@ function reverseInParentheses($inputString) {
                 }
             }    
         if($k>0) for($i=0; $i <= $k-1; $i++) {
-                if($i==0) {
-                    $str1 = substr($inputString,$op[$i],$cl[$i]-$op[$i]+1);
-                    $str2 = substr($inputString,$op[$i]+1,$cl[$i]-$op[$i]-1);
-                    $str2 = strrev($str2);
-                    $inputString = str_replace($str1,$str2,$inputString);
-                }
-                if($i>0) {
                     $str1 = substr($inputString,$op[$i]-$i*2,$cl[$i]-$op[$i]+1);
                     $str2 = substr($inputString,$op[$i]+1-$i*2,$cl[$i]-$op[$i]-1);
                     $str2 = strrev($str2);
                     $inputString = str_replace($str1,$str2,$inputString);
-                }
         }
         $pair = $k;
     } while($pair!=0);
